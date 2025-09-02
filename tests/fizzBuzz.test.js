@@ -16,4 +16,8 @@ describe('Tests on fizzBuzz()', () => {
     expect(fizzBuzz(15)).toBe('FizzBuzz');
     expect(fizzBuzz(30)).toBe('FizzBuzz');
   });
+
+  test('should return the number as string if is not divisivle by 3 or 5', () => {
+    expect(fizzBuzz(2)).toBe('2');
+  });
 });
