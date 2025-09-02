@@ -1,4 +1,7 @@
-// Exercise: Writing good assertions
+/**
+ * Returns a list of available coupons.
+ * @returns {{ code: string; discount: number; }[]} Array of coupon objects.
+ */
 export function getCoupons() {
   return [
     { code: 'SAVE20NOW', discount: 0.2 },
@@ -7,7 +10,21 @@ export function getCoupons() {
   ];
 }
 
-// Lesson: Positive and negative testing
+/**
+ * Calculates the discounted price based on the provided discount code.
+ * @param {number} price The original price of the item.
+ * @param {number} discountCode The discount code to apply.
+ * @example```javascript
+ * calculateDiscount(100, 'SAVE10') // returns 90
+ * calculateDiscount(200, 'SAVE20') // returns 160
+ * calculateDiscount('100', 'SAVE10') // returns 'Invalid price'
+ * calculateDiscount(0, 'SAVE10') // returns 'Invalid price'
+ * calculateDiscount(-1, 'SAVE10') // returns 'Invalid price'
+ * calculateDiscount(100, 10) // returns 'Invalid price'
+ * calculateDiscount(100, 'SUMMER50') // returns 'Invalid discount code'
+ * ```
+ * @returns {number|string} The discounted price or an error message.
+ */
 export function calculateDiscount(price, discountCode) {
   if (typeof price !== 'number' || price <= 0) {
     return 'Invalid price';
@@ -18,10 +35,16 @@ export function calculateDiscount(price, discountCode) {
   }
 
   let discount = 0;
-  if (discountCode === 'SAVE10') {
-    discount = 0.1;
-  } else if (discountCode === 'SAVE20') {
-    discount = 0.2;
+
+  switch (discountCode) {
+    case 'SAVE10':
+      discount = 0.1;
+      break;
+    case 'SAVE20':
+      discount = 0.2;
+      break;
+    default:
+      return 'Invalid discount code';
   }
 
   return price - price * discount;
