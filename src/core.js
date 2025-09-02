@@ -51,14 +51,35 @@ export function calculateDiscount(price, discountCode) {
 }
 
 // Exercise: Positive and negative testing
+/**
+ * 
+ * @param {string} username The username to validate.
+ * @param {number} age The age to validate.
+ * @example```javascript
+ * validateUserInput('spiderman', 25) // returns 'Validation successful'
+ * validateUserInput(100, 25) // returns 'Invalid username';
+ * validateUserInput('sp', 25) // returns 'Invalid username';
+ * validateUserInput('spiderman', '25') // returns 'Invalid age';
+ * validateUserInput('spiderman', 5) // returns 'Invalid age';
+ * ```
+ * @returns {string} Validation result message.
+ */
 export function validateUserInput(username, age) {
   let errors = [];
 
-  if (typeof username !== 'string' || username.length < 3) {
+  if (
+    typeof username !== 'string'
+    || username.length < 3
+    || username.length > 255
+  ) {
     errors.push('Invalid username');
   }
 
-  if (typeof age !== 'number' || age < 18) {
+  if (
+    typeof age !== 'number'
+    || age < 18
+    || age >= 100
+  ) {
     errors.push('Invalid age');
   }
 
