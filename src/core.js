@@ -86,16 +86,42 @@ export function validateUserInput(username, age) {
   return errors.length === 0 ? 'Validation successful' : errors.join(', ');
 }
 
-// Lesson: Boundary testing
+/**
+ * Checks if a price is within a specified range (inclusive).
+ * @param {number} price The price to check.
+ * @param {number} min The minimum price in the range.
+ * @param {number} max The maximum price in the range.
+ * @example```javascript
+ * isPriceInRange(50, 10, 100) // returns true
+ * isPriceInRange(9, 10, 100) // returns false
+ * isPriceInRange(101, 10, 100) // returns false
+ * ```
+ * @returns {boolean} True if the price is within the range, false otherwise.
+ */
 export function isPriceInRange(price, min, max) {
   return price >= min && price <= max;
 }
 
-// Exercise: Boundary testing
-export function isValidUsername(username) {
-  const minLength = 5;
-  const maxLength = 15;
-
+/**
+ * Validates if a username meets the length requirements.
+ * @param {string} username The username to validate.
+ * @param {number} minLength The minimum length of the username (default is 5).
+ * @param {number} maxLength The maximum length of the username (default is 15).
+ * @example```javascript
+ * isValidUsername('ironman') // returns true
+ * isValidUsername('spiderman', 3, 10) // returns true
+ * isValidUsername('us') // returns false
+ * isValidUsername('') // returns false
+ * isValidUsername('thisisaverylongusername') // returns false
+ * isValidUsername(null) // returns false
+ * isValidUsername(undefined) // returns false
+ * isValidUsername() // returns false
+ * isValidUsername(10) // returns false
+ * ```
+ * @returns {boolean} True if the username is valid, false otherwise.
+ */
+export function isValidUsername(username, minLength = 5, maxLength = 15) {
+  if (typeof username !== 'string') return false;
   return username.length >= minLength && username.length <= maxLength;
 }
 
