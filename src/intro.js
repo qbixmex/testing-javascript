@@ -31,3 +31,28 @@ export function fizzBuzz(n) {
   if (n % 5 === 0) return 'Buzz';
   return n.toString();
 }
+
+/**
+ * Calculates the average of an array of numbers.
+ * 
+ * @param {number[]} numbers
+ * @example```javascript
+ * calculateAverage([]) // returns NaN
+ * calculateAverage([1) // returns 1
+ * calculateAverage([10, 20, 30]) // returns 20
+ * ```
+ * @returns {number|NaN} The average of the numbers in the array
+ */
+export function calculateAverage(numbers) {
+  if (numbers.length === 0) {
+    return NaN;
+  }
+
+  if (numbers.length === 1) {
+    return numbers[0];
+  }
+
+  const sum = numbers.reduce((sum, current) => sum + current, 0);
+
+  return sum / numbers.length;
+}
