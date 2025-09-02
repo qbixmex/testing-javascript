@@ -56,3 +56,24 @@ export function calculateAverage(numbers) {
 
   return sum / numbers.length;
 }
+
+/**
+ * Calculates the factorial of a number.
+ * 
+ * @param {n} n The given number
+ * @example ```javascript
+ * factorial(0) // returns 1
+ * factorial(1) // returns 1
+ * factorial(2) // returns 2
+ * factorial(3) // returns 6
+ * factorial(4) // returns 24
+ * ```
+ * 
+ * @returns {number} The factorial result
+ */
+export function factorial(n) {
+  if (n < 0) return undefined;
+  if (n === 0 || n === 1) return 1;
+
+  return n * factorial(n - 1);
+}
