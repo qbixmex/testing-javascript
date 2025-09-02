@@ -1,7 +1,7 @@
 import { describe, test, expect } from "vitest";
 import { max } from "../src/intro";
 
-describe('max', () => {
+describe('Tests on max()', () => {
   test('should return the first argument if it is greater', () => {
     const a = 2;
     const b = 1;
