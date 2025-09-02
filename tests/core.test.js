@@ -1,4 +1,5 @@
 import { describe, test, expect } from "vitest";
+import { getCoupons } from "../src/core";
 
 describe('Tests on core', () => {
   test('should contains part of the text', () => {
@@ -41,5 +42,36 @@ describe('Tests on core', () => {
     expect(result).toMatchObject({ language: 'javascript' });
     expect(result).toHaveProperty('language');
     expect(typeof result.language).toBe('string');
+  });
+
+  test('should returns an array of coupons', () => {
+    const coupons = getCoupons();
+    expect(coupons.length).toBeGreaterThan(0);
+  });
+
+  test('should returns an array of coupons', () => {
+    const coupons = getCoupons();
+    expect(Array.isArray(coupons)).toBe(true);
+  });
+
+  test('should return an array with valid coupon codes', () => {
+    const coupons = getCoupons();
+
+    coupons.forEach((coupon) => {
+      expect(coupon).toHaveProperty('code');
+      expect(typeof coupon.code).toBe('string');
+      expect(coupon.code).toBeTruthy();
+    });
+  });
+
+  test('should return an array with valid discounts', () => {
+    const coupons = getCoupons();
+
+    coupons.forEach((coupon) => {
+      expect(coupon).toHaveProperty('discount');
+      expect(typeof coupon.discount).toBe('number');
+      expect(coupon.discount).toBeGreaterThan(0);
+      expect(coupon.discount).toBeLessThan(1);
+    });
   });
 });
