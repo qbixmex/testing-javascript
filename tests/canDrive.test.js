@@ -2,32 +2,19 @@ import { describe, test, expect } from "vitest";
 import { canDrive } from "../src/core.js";
 
 describe('Tests on canDrive()', () => {
-  test('should return true for min age in the US', () => {
-    expect(canDrive(16, 'US')).toBe(true);
+  test.each([
+    { age: 15, countryCode: 'US', result: false },
+    { age: 16, countryCode: 'US', result: true },
+    { age: 17, countryCode: 'US', result: true },
+    { age: 16, countryCode: 'UK', result: false },
+    { age: 17, countryCode: 'UK', result: true },
+    { age: 18, countryCode: 'UK', result: true },
+  ])('should return $result for $age, $countryCode', ({ age, countryCode, result }) => {
+    expect(canDrive(age, countryCode)).toBe(result);
   });
 
-  test('should return true for eligible in the US', () => {
-    expect(canDrive(16, 'US')).toBe(true);
-  });
-
-  test('should return false for underage in the US', () => {
-    expect(canDrive(14, 'US')).toBe(false);
-  });
-
-  test('should return true for min age in the UK', () => {
-    expect(canDrive(17, 'UK')).toBe(true);
-  });
-
-  test('should return true for eligible in the UK', () => {
-    expect(canDrive(18, 'UK')).toBe(true);
-  });
-
-  test('should return error for invalid country code', () => {
-    expect(canDrive(20, 'CA')).toMatch(/invalid/i);
-  });
-
-  test('should return false for underage in the UK', () => {
-    expect(canDrive(16, 'UK')).toBe(false);
+  test('should return an error if country code is invalid', () => {
+    expect(canDrive(16, 'MX')).toMatch(/invalid/i);
   });
 
   test('should return false if age is not a number', () => {
