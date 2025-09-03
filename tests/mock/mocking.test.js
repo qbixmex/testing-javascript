@@ -37,4 +37,15 @@ describe('Test on Mocks', () => {
     expect(result).toMatch(/hello/i);
     expect(greet).toHaveBeenCalledWith(name);
   });
+
+  test('Should return a a message', () => {
+    const sendText = vi.fn();
+
+    sendText.mockReturnValue('ok');
+
+    const result = sendText('lorem ipsum');
+
+    expect(sendText).toHaveBeenCalled();
+    expect(result).toBe('ok');
+  });
 });
