@@ -100,9 +100,19 @@ export function isOnline() {
   return currentHour >= open && currentHour < close;
 }
 
-// Exercise
+/**
+ * Get the current discount rate.
+ * 
+ * The discount is 20% on Christmas (December 25), and 0% otherwise.
+ * 
+ * @example```javascript
+ * getDiscount() // 0.2 on Christmas, 0 otherwise
+ * ```
+ * 
+ * @returns {number} discount rate (0.2 for 20% on Christmas, 0 otherwise)
+ */
 export function getDiscount() {
   const today = new Date();
-  const isChristmasDay = today.getMonth() === 11 && today.getDate() === 25;
+  const isChristmasDay = (today.getMonth() === 11) && (today.getDate() === 25);
   return isChristmasDay ? 0.2 : 0;
 }
