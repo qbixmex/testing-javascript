@@ -153,8 +153,25 @@ export function canDrive(age, countryCode) {
   return (age >= legalDrivingAge[countryCode]) && (age < 100);
 }
 
-// Lesson: Testing asynchronous code
-export function fetchData() {
+/**
+ * Simulates fetching data asynchronously and returns a promise that resolves to an array of numbers.
+ * @param {{ failed: boolean }|undefined} options A flag to simulate if the promise should reject or resolve
+ * @example```javascript
+ * fetchData()
+ * .then(data => console.log(data));
+ * // logs [1, 2, 3] after a delay
+ * 
+ * fetchData({ failed: true })
+ * .catch(error => console.log(error.reason));
+ * // logs 'Operation Failed'
+ * ```
+ * @returns {Promise<number[]>} A promise that resolves to an array of numbers after a delay.
+ */
+export function fetchData(options) {
+  if (options && options.failed) {
+    return Promise.reject({ reason: 'Operation Failed' });
+  }
+
   return new Promise((resolve) => {
     setTimeout(() => {
       const data = [1, 2, 3];
