@@ -33,7 +33,10 @@ export function getShippingInfo(destination) {
   return `Shipping Cost: $${quote.cost} (${quote.estimatedDays} Days)`;
 }
 
-// Lesson: Interaction testing
+/**
+ * Render the home page.
+ * @returns {Promise<string>} HTML content
+ */
 export async function renderPage() {
   trackPageView('/home');
 
