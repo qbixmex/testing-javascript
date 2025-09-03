@@ -60,7 +60,7 @@ describe('Tests on Stack', () => {
   test('clear should remove all items from the stack', () => {
     [1, 2].forEach(item => stack.push(item));
 
-    stack.clear()
+    stack.clear();
 
     expect(stack.size()).toBe(0);
   });

@@ -11,7 +11,7 @@ describe('Test on renderPage()', () => {
   });
 
   test('should call analytics', async () => {
-    const result = await renderPage();
+    await renderPage();
     expect(trackPageView).toHaveBeenCalledWith('/home');
   });
 });

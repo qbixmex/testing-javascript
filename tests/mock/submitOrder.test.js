@@ -11,7 +11,7 @@ describe('Tests on submitOrder()', () => {
   test('should charge the customer', async () => {
     vi.mocked(charge).mockResolvedValue({ status: 'success' });
 
-    const result = await submitOrder(order, creditCard);
+    await submitOrder(order, creditCard);
 
     expect(charge).toBeCalledWith(creditCard, order.totalAmount);
   });

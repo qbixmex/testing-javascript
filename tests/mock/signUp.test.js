@@ -1,4 +1,4 @@
-import { vi, describe, test, expect, beforeEach } from 'vitest';
+import { vi, describe, test, expect } from 'vitest';
 import { signUp } from '../../src/mocking';
 import { sendEmail } from '../../src/libs/email';
 
@@ -7,7 +7,7 @@ vi.mock('../../src/libs/email', async (importOriginal) => {
   return {
     ...originalModule,
     sendEmail: vi.fn(), // << Only this module will mocked
-  }
+  };
 });
 
 describe('Tests on signUp()', () => {

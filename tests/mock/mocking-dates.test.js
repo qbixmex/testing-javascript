@@ -1,4 +1,4 @@
-import { vi, test, expect, describe } from 'vitest'
+import { vi, test, expect, describe } from 'vitest';
 import { isOnline } from '../../src/mocking';
 
 describe('Tests on isOnline()', () => {
