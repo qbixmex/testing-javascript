@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { isValidUsername } from "../src/core.js";
+import { isValidUsername } from "../../src/core.js";
 
 describe('Tests on isPriceInRange()', () => {
   test('should returns true if username length is withing the range', () => {

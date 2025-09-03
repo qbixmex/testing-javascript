@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { calculateAverage } from "../src/intro";
+import { calculateAverage } from "../../src/intro";
 
 describe('Tests on calculateAverage()', () => {
   test('should return NaN if given an empty array', () => {

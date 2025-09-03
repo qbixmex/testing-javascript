@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { getCoupons } from "../src/core";
+import { getCoupons } from "../../src/core";
 
 describe('Tests on core', () => {
   test('should contains part of the text', () => {

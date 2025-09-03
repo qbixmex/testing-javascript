@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { fetchData } from "../src/core.js";
+import { fetchData } from "../../src/core.js";
 
 describe('Tests on fetchData()', () => {
   test('should return a promise that will resolve to a numbers array', async () => {

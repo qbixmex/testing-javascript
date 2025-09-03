@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from 'vitest';
-import { Stack } from '../src/core';
+import { Stack } from '../../src/core';
 
 describe('Tests on Stack', () => {
   let stack;

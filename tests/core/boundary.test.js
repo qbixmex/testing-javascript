@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { isPriceInRange } from "../src/core.js";
+import { isPriceInRange } from "../../src/core.js";
 
 describe('Tests on isPriceInRange()', () => {
   test.each([

@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { fizzBuzz } from "../src/intro";
+import { fizzBuzz } from "../../src/intro";
 
 describe('Tests on fizzBuzz()', () => {
   test('should return Fizz if argument is divisible by 3', () => {

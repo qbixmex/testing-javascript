@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { validateUserInput } from "../src/core.js";
+import { validateUserInput } from "../../src/core.js";
 
 describe('Tests on validateUserInput()', () => {
   test('should return success if given valid input', () => {

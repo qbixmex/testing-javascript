@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { createProduct } from "../src/core.js";
+import { createProduct } from "../../src/core.js";
 
 describe('Tests on canDrive()', () => {
   test('should return a success message', () => {

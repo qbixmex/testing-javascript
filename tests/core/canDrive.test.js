@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { canDrive } from "../src/core.js";
+import { canDrive } from "../../src/core.js";
 
 describe('Tests on canDrive()', () => {
   test.each([

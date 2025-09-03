@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { calculateDiscount } from "../src/core.js";
+import { calculateDiscount } from "../../src/core.js";
 
 describe('Tests on calculateDiscount()', () => {
   test('should return discounted price if given valid code', () => {

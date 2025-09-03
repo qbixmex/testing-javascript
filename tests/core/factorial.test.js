@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { factorial } from "../src/intro";
+import { factorial } from "../../src/intro";
 
 describe('Tests on factorial()', () => {
   test('should return 1 if given 0', () => {

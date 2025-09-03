@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { isStrongPassword } from "../src/core.js";
+import { isStrongPassword } from "../../src/core.js";
 
 describe('Tests on canDrive()', () => {
   test('should return false if password is less than minimun length', () => {
