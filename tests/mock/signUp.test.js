@@ -1,4 +1,4 @@
-import { vi, describe, test, expect } from 'vitest';
+import { vi, describe, test, expect, beforeEach } from 'vitest';
 import { signUp } from '../../src/mocking';
 import { sendEmail } from '../../src/libs/email';
 
@@ -13,6 +13,11 @@ vi.mock('../../src/libs/email', async (importOriginal) => {
 describe('Tests on signUp()', () => {
   const email = 'ironman@marvel.com';
 
+  // beforeEach(() => {
+    //? vi.mocked(sendEmail).mockClear(); // << Option 1
+    //? vi.clearAllMocks(); // << Option 2
+  // });
+
   test('should return false if email is not valid', async () => {
     const result = await signUp('abc');
     expect(result).toBe(false);
@@ -26,7 +31,7 @@ describe('Tests on signUp()', () => {
   test('should send the welcome email if email is valid', async () => {
     await signUp(email);
     
-    expect(sendEmail).toHaveBeenCalled();
+    expect(sendEmail).toHaveBeenCalledOnce();
     
     const [emailCall, messageCall] = vi.mocked(sendEmail).mock.calls[0];
 
