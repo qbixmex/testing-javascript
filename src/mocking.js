@@ -83,13 +83,21 @@ export async function login(email) {
   await sendEmail(email, code.toString());
 }
 
-// Lesson: Mocking dates
+/**
+ * Check if the service is online based on the current time.
+ * 
+ * The service is online from 8 AM to 8 PM.
+ * @example```javascript
+ * isOnline() // true or false based on current time
+ * ```
+ * @returns {boolean} true if online, false otherwise
+ */
 export function isOnline() {
   const availableHours = [8, 20];
   const [open, close] = availableHours;
   const currentHour = new Date().getHours();
 
-  return currentHour >= open && currentHour <= close;
+  return currentHour >= open && currentHour < close;
 }
 
 // Exercise
