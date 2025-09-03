@@ -273,6 +273,18 @@ export function createProduct(product) {
   };
 }
 
+/**
+ * Validates if a password is strong based on specific criteria.
+ * @param {string} password The password to validate.
+ * @example```javascript
+ * isStrongPassword('abc') // returns false
+ * isStrongPassword('my_secret_password') // returns false
+ * isStrongPassword('MY_SECRET_PASSWORD') // returns false
+ * isStrongPassword('MySecretPassword') // returns false
+ * isStrongPassword('MySecret8Password') // returns false
+ * ```
+ * @returns {boolean} True if the password is strong, false otherwise.
+ */
 export function isStrongPassword(password) {
   // Check the length of the password (minimum 8 characters)
   if (password.length < 8) {
