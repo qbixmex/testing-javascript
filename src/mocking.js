@@ -43,12 +43,18 @@ export async function renderPage() {
   return '<div>content</div>';
 }
 
-// Exercise
+/**
+ * Submit an order for a purchase.
+ * @param {{ totalAmount: number }} order The order information
+ * @param {{ creditCardNumber: number }} creditCard The credit card information
+ * @returns {Promise<{success: boolean, error?: string}>}
+ */
 export async function submitOrder(order, creditCard) {
   const paymentResult = await charge(creditCard, order.totalAmount);
 
-  if (paymentResult.status === 'failed')
+  if (paymentResult.status === 'failed') {
     return { success: false, error: 'payment_error' };
+  }
 
   return { success: true };
 }
