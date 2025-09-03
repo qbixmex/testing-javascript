@@ -5,13 +5,28 @@ import { charge } from './libs/payment';
 import security from './libs/security';
 import { getShippingQuote } from './libs/shipping';
 
-// Lesson: Mocking modules
+/**
+ * Get the price in a specific currency.
+ * @param {number} price USD price
+ * @param {number} currency currency code
+ * @example```javascript
+ * getPriceInCurrency(10, 'AUD') // 15
+ * ```
+ * @returns {number} price in currency
+ */
 export function getPriceInCurrency(price, currency) {
   const rate = getExchangeRate('USD', currency);
   return price * rate;
 }
 
-// Exercise
+/**
+ * Get shipping info for a destination.
+ * @param {string} destination destination country code
+ * @example```javascript
+ * getShippingInfo('US') // 'Shipping Cost: $5 (5 Days)'
+ * ```
+ * @returns {string} shipping info
+ */
 export function getShippingInfo(destination) {
   const quote = getShippingQuote(destination);
   if (!quote) return 'Shipping Unavailable';
