@@ -230,21 +230,47 @@ export class Stack {
   }
 }
 
-// Additional exercises
+/**
+ * Simulates creating a product and returns a success or error message based on the input.
+ * @param {{ name: string, price: number }} product The product to create.
+ * @example```javascript
+ * createProduct({ name: 'Laptop', price: 1000 })
+ * // returns { success: true, message: 'Product was successfully published' }
+ * 
+ * createProduct({ name: '', price: 1000 })
+ * // returns { success: false, error: { code: 'invalid_name', message: 'Name is missing' } }
+ * 
+ * createProduct({ name: 'Laptop', price: 0 })
+ * // returns { success: false, error: { code: 'invalid_price', message: 'Price is missing' } }
+ * ```
+ * @returns {{
+ *   success: boolean,
+ *   message?: string,
+ *   error?: {
+ *     code: string,
+ *     message: string
+ *   }
+ * }} Result of the product creation
+ */
 export function createProduct(product) {
-  if (!product.name)
+  if (!product.name){
     return {
       success: false,
       error: { code: 'invalid_name', message: 'Name is missing' },
     };
+  }
 
-  if (product.price <= 0)
+  if (product.price <= 0) {
     return {
       success: false,
       error: { code: 'invalid_price', message: 'Price is missing' },
     };
+  }
 
-  return { success: true, message: 'Product was successfully published' };
+  return {
+    success: true,
+    message: 'Product was successfully published',
+  };
 }
 
 export function isStrongPassword(password) {
