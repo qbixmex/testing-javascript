@@ -168,15 +168,17 @@ export function canDrive(age, countryCode) {
  * @returns {Promise<number[]>} A promise that resolves to an array of numbers after a delay.
  */
 export function fetchData(options) {
-  if (options && options.failed) {
-    return Promise.reject({ reason: 'Operation Failed' });
-  }
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const data = [1, 2, 3];
-      resolve(data);
-    });
+      if (!options) {
+        resolve([1, 2, 3]);
+      }
+      
+      if (options && options.failed) {
+        reject({ reason: 'Operation Failed' });
+      }
+    }, 0);
   });
 }
 
@@ -253,7 +255,7 @@ export class Stack {
  * }} Result of the product creation
  */
 export function createProduct(product) {
-  if (!product.name){
+  if (!product.name) {
     return {
       success: false,
       error: { code: 'invalid_name', message: 'Name is missing' },

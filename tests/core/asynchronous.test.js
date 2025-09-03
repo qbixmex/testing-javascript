@@ -10,10 +10,10 @@ describe('Tests on fetchData()', () => {
 
   test('should return a promise that will reject to a numbers array', async () => {
     try {
-      await fetchData({ fail: true });
+      await fetchData({ failed: true });
     } catch(error) {
       expect(error).toHaveProperty('reason');
-      expect(error.reason).toMatch(/fail/i);
+      expect(error.reason).toMatch(/failed/i);
     }
   });
 });
