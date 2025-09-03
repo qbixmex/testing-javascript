@@ -180,7 +180,20 @@ export function fetchData(options) {
   });
 }
 
-// Lesson: Setup and teardown
+/**
+ * A simple Stack data structure implementation.
+ * @example```javascript
+ * const stack = new Stack();
+ * stack.push(1);
+ * stack.push(2);
+ * console.log(stack.peek()); // 2
+ * console.log(stack.pop()); // 2
+ * console.log(stack.size()); // 1
+ * console.log(stack.isEmpty()); // false
+ * stack.clear();
+ * console.log(stack.isEmpty()); // true
+ * ```
+ */
 export class Stack {
   constructor() {
     this.items = [];
