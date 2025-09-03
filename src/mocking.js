@@ -59,7 +59,11 @@ export async function submitOrder(order, creditCard) {
   return { success: true };
 }
 
-// Lesson: Partial mocking
+/**
+ * Sign up a new user by sending them a welcome email.
+ * @param {string} email The user's email
+ * @returns {Promise<boolean>} true if the email was sent, false otherwise
+ */
 export async function signUp(email) {
   if (!isValidEmail(email)) return false;
 
@@ -68,7 +72,11 @@ export async function signUp(email) {
   return true;
 }
 
-// Lesson: Spying on functions
+/**
+ * Log in a user by sending them a security code.
+ * @param {string} email The user's email
+ * @returns {Promise<void>}
+ */
 export async function login(email) {
   const code = security.generateCode();
 
