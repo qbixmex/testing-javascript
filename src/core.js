@@ -125,8 +125,22 @@ export function isValidUsername(username, minLength = 5, maxLength = 15) {
   return username.length >= minLength && username.length <= maxLength;
 }
 
-// Exercise: Boundary testing
+/**
+ * Determines if a person can drive based on their age and country code.
+ * @param {number} age The age of the person.
+ * @param {number} countryCode The country code (e.g., 'US', 'UK').
+ * @example```javascript
+ * canDrive(16, 'US') // returns true
+ * canDrive(15, 'US') // returns false
+ * canDrive(17, 'UK') // returns true
+ * canDrive(16, 'UK') // returns false
+ * canDrive(18, 'CA') // returns 'Invalid country code'
+ * ```
+ * @returns {boolean|string} True if the person can drive, false if they cannot, or an error message for invalid country codes.
+ */
 export function canDrive(age, countryCode) {
+  if (typeof age !== 'number' || typeof countryCode !== 'string') return false;
+
   const legalDrivingAge = {
     US: 16,
     UK: 17,
@@ -136,7 +150,7 @@ export function canDrive(age, countryCode) {
     return 'Invalid country code';
   }
 
-  return age >= legalDrivingAge[countryCode];
+  return (age >= legalDrivingAge[countryCode]) && (age < 100);
 }
 
 // Lesson: Testing asynchronous code
